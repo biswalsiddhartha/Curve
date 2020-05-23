@@ -1,3 +1,46 @@
-<p>
-  toy-movement works!
-</p>
+<form [formGroup]="ToyDetails"> 
+
+  <div>
+    <h1>enter the position</h1>
+    x:
+    1<input type="radio"  value="1" formControlName="xCoordinate">
+    2<input type="radio"  value="2" formControlName="xCoordinate">
+    3<input type="radio"  value="3" formControlName="xCoordinate">
+    4<input type="radio"  value="4" formControlName="xCoordinate"> <br> <br>
+
+    y:
+    1<input type="radio"  value="1" formControlName="yCoordinate">
+    2<input type="radio"  value="2" formControlName="yCoordinate">
+    3<input type="radio"  value="3" formControlName="yCoordinate">
+    4<input type="radio"  value="4" formControlName="yCoordinate"> <br>
+    
+    direction:
+    east<input type="radio"  value="EAST" formControlName="direction">
+    west<input type="radio"  value="WEST" formControlName="direction">
+    north<input type="radio"  value="NORTH" formControlName="direction">
+    south <input type="radio"  value="SOUTH" formControlName="direction">
+
+    <button submit (click)="submit()">Update position</button>
+    <button type="reset" >Reset</button>
+
+  </div>
+
+  
+  <div>
+    <h1>button for movement</h1>
+    <button (click)="leftMove()">Leftmove</button>
+    <button (click) ="move()">Move</button>
+    <button (click)="rightMove()">Right</button>
+
+  </div>
+
+  
+  <div>
+    <h1>report</h1>
+
+    x:{{xCoordinate}}
+    y:{{yCoordinate}}
+    direction:{{direction}}
+  </div>
+<button (click)="report()">Report</button>
+</form>
