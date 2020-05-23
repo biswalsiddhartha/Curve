@@ -1,10 +1,16 @@
-import { NgModule } from '@angular/core';
+import { NgModule, Component } from '@angular/core';
 import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
+import { ToyMovementComponent } from './toy-movement/toy-movement.component';
 
 const routes: Routes = [
   {
     path: 'home',
     loadChildren: () => import('./home/home.module').then( m => m.HomePageModule)
+  },
+
+  {
+    path:'robotToy',
+    component:ToyMovementComponent
   },
   {
     path: '',
