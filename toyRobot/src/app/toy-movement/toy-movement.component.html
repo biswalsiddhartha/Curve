@@ -1,4 +1,4 @@
-<form [formGroup]="ToyDetails"> 
+<form [formGroup]="ToyDetails" > 
 
   <div>
     <h1>enter the position</h1>
@@ -20,6 +20,16 @@
     north<input type="radio"  value="NORTH" formControlName="direction">
     south <input type="radio"  value="SOUTH" formControlName="direction">
 
+    <div *ngIf="submitted && ToyDetails.controls.xCoordinate.errors">
+      <div *ngIf="ToyDetails.controls.xCoordinate.errors.required">x is required</div>   
+  </div>
+  <div *ngIf="submitted && ToyDetails.controls.yCoordinate.errors">
+    <div *ngIf="ToyDetails.controls.yCoordinate.errors.required">y is required</div>   
+</div>
+<div *ngIf="submitted && ToyDetails.controls.direction.errors">
+  <div *ngIf="ToyDetails.controls.direction.errors.required">direction is required</div>   
+</div>
+
     <button submit (click)="submit()">Update position</button>
     <button type="reset" >Reset</button>
 
@@ -28,19 +38,22 @@
   
   <div>
     <h1>button for movement</h1>
-    <button (click)="leftMove()">Leftmove</button>
-    <button (click) ="move()">Move</button>
-    <button (click)="rightMove()">Right</button>
+    <button (click)="leftMove()" [disabled]="isPositionSet">Leftmove</button>
+    <button (click) ="move()" [disabled]="isPositionSet">Move</button>
+    <button (click)="rightMove()" [disabled]="isPositionSet">Right</button>
 
   </div>
 
   
-  <div>
+  <button (click)="report()" [disabled]="isPositionSet">Report</button>
+  <div *ngIf="isReportClicked">
+    
     <h1>report</h1>
 
     x:{{xCoordinate}}
     y:{{yCoordinate}}
     direction:{{direction}}
+    <button (click) ="closeReport()"> close report</button>
   </div>
-<button (click)="report()">Report</button>
+
 </form>
