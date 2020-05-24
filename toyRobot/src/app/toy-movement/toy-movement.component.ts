@@ -18,6 +18,7 @@ export class ToyMovementComponent implements OnInit {
   submitted:boolean=false
   isPositionSet:boolean=true
   isReportClicked:boolean=false
+ 
   constructor(private FBObject:FormBuilder) { }
 
   ngOnInit() {
@@ -64,7 +65,7 @@ move(){
       this.yCoordinate--
     }
   }
-
+  this.displayRobot()
 
 }
 
@@ -81,6 +82,7 @@ move(){
     else if(this.direction=="SOUTH"){
       this.direction="EAST"
     }
+    this.displayRobot()
   }
   rightMove(){
     if(this.direction=="EAST"){
@@ -95,6 +97,7 @@ move(){
     else if(this.direction=="SOUTH"){
       this.direction="WEST"
     }
+    this.displayRobot()
 
   }
   submit(){
@@ -110,11 +113,47 @@ move(){
       this.xCoordinate=this.ToyDetails.controls.xCoordinate.value;
       this.yCoordinate=this.ToyDetails.controls.yCoordinate.value;
       this.direction=this.ToyDetails.controls.direction.value;
-    this.result()
+      this.result()
+      this.displayRobot()
+    
 
     }
     
   }
+
+  displayRobot() {
+    var x=this.xCoordinate
+    var y=this.yCoordinate
+    //alert("display robot is called");
+    
+
+    var images = document.getElementsByTagName('img');
+		for (var i = 0; i < images.length; i++) {
+			images[i].style.visibility = "hidden";
+		}
+
+		var img = document.getElementById(x + "" + y);
+
+		if (this.direction == 'EAST') {
+			img.setAttribute('style', 'transform:rotate(90deg)');
+			document.getElementById(x + "" + y).style.visibility = "visible";
+		} else if (this.direction== 'WEST') {
+			img.setAttribute('style', 'transform:rotate(270deg)');
+			document.getElementById(x + "" + y).style.visibility = "visible";
+		} else if (this.direction== 'NORTH') {
+			img.style.transform = 'rotate(0deg)';
+			document.getElementById(x + "" + y).style.visibility = "visible";
+		} else if (this.direction== 'SOUTH') {
+			img.style.transform = 'rotate(180deg)';
+			document.getElementById(x + "" + y).style.visibility = "visible";
+		}
+
+
+
+
+  }
+
+
 
   result(){
     console.log("x"+this.xCoordinate)
