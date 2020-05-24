@@ -1,118 +1,123 @@
 <body>
-<form [formGroup]="ToyDetails"> 
-  <div class="container-fluid" style="font-size:12px !important;">
-    <h1 align="center">Toy Robot Simulator</h1>
+  <form [formGroup]="ToyDetails">
+    <div class="container-fluid" style="font-size:12px !important;">
+      <h1 align="center">Toy Robot Simulator</h1>
       <table>
-        <tr >
+        <tr>
           <td style="padding-left: 120px;padding-right: 15px;">
-          <h5>Initial Position:</h5>
-          Specify the X, Y coordinates of the Toy:<br>
-          X:
+            <h5>Initial Position:</h5>
+            Specify the X, Y coordinates of the Toy:<br>
+            X:
             <div class="form-check-inline">
-              <label class="form-check-label"> <input type="radio"
-                class="form-check-input"  value="0" formControlName="xCoordinate">0
+              <label class="form-check-label"> <input type="radio" class="form-check-input" value="0"
+                  formControlName="xCoordinate">0
               </label>
             </div>
             <div class="form-check-inline">
-              <label class="form-check-label"> <input type="radio"
-                class="form-check-input"  value="1" formControlName="xCoordinate">1
+              <label class="form-check-label"> <input type="radio" class="form-check-input" value="1"
+                  formControlName="xCoordinate">1
               </label>
             </div>
             <div class="form-check-inline">
-              <label class="form-check-label"> <input type="radio"
-                class="form-check-input"  value="2" formControlName="xCoordinate">2
+              <label class="form-check-label"> <input type="radio" class="form-check-input" value="2"
+                  formControlName="xCoordinate">2
               </label>
             </div>
             <div class="form-check-inline">
-              <label class="form-check-label"> <input type="radio"
-                class="form-check-input"  value="3" formControlName="xCoordinate">3
+              <label class="form-check-label"> <input type="radio" class="form-check-input" value="3"
+                  formControlName="xCoordinate">3
               </label>
             </div>
             <div class="form-check-inline">
-              <label class="form-check-label"> <input type="radio"
-                class="form-check-input" value="4" formControlName="xCoordinate">4
+              <label class="form-check-label"> <input type="radio" class="form-check-input" value="4"
+                  formControlName="xCoordinate">4
               </label>
             </div> &nbsp;&nbsp;<br>
             Y:
             <div class="form-check-inline">
-              <label class="form-check-label"> <input type="radio"
-                class="form-check-input"  value="0" formControlName="yCoordinate" >0
+              <label class="form-check-label"> <input type="radio" class="form-check-input" value="0"
+                  formControlName="yCoordinate">0
               </label>
             </div>
             <div class="form-check-inline">
-              <label class="form-check-label"> <input type="radio"
-                class="form-check-input"  value="1" formControlName="yCoordinate">1
+              <label class="form-check-label"> <input type="radio" class="form-check-input" value="1"
+                  formControlName="yCoordinate">1
               </label>
             </div>
             <div class="form-check-inline">
-              <label class="form-check-label"> <input type="radio"
-                class="form-check-input"  value="2" formControlName="yCoordinate">2
+              <label class="form-check-label"> <input type="radio" class="form-check-input" value="2"
+                  formControlName="yCoordinate">2
               </label>
             </div>
             <div class="form-check-inline">
-              <label class="form-check-label"> <input type="radio"
-                class="form-check-input" value="3" formControlName="yCoordinate">3
+              <label class="form-check-label"> <input type="radio" class="form-check-input" value="3"
+                  formControlName="yCoordinate">3
               </label>
             </div>
             <div class="form-check-inline">
-              <label class="form-check-label"> <input type="radio"
-                class="form-check-input"  value="4" formControlName="yCoordinate">4
+              <label class="form-check-label"> <input type="radio" class="form-check-input" value="4"
+                  formControlName="yCoordinate">4
               </label>
             </div>
             <br><br>
             Specify direction:<br>
             <div class="form-check-inline">
-              <label class="form-check-label"> <input type="radio"
-                class="form-check-input"  value="EAST" formControlName="direction">East
+              <label class="form-check-label"> <input type="radio" class="form-check-input" value="EAST"
+                  formControlName="direction">East
               </label>
             </div>
             <div class="form-check-inline">
-              <label class="form-check-label"> <input type="radio"
-                class="form-check-input" value="WEST" formControlName="direction">West
+              <label class="form-check-label"> <input type="radio" class="form-check-input" value="WEST"
+                  formControlName="direction">West
               </label>
             </div>
             <div class="form-check-inline">
-              <label class="form-check-label"> <input type="radio"
-                class="form-check-input" value="NORTH" formControlName="direction">North
+              <label class="form-check-label"> <input type="radio" class="form-check-input" value="NORTH"
+                  formControlName="direction">North
               </label>
             </div>
             <div class="form-check-inline">
-              <label class="form-check-label"> <input type="radio"
-                class="form-check-input"  value="SOUTH" formControlName="direction">South
+              <label class="form-check-label"> <input type="radio" class="form-check-input" value="SOUTH"
+                  formControlName="direction">South
               </label>
-            </div><br><br>
+            </div><br>
 
             <div *ngIf="submitted && ToyDetails.controls.xCoordinate.errors">
-              <div *ngIf="ToyDetails.controls.xCoordinate.errors.required">x is required</div>   
-          </div>
-          <div *ngIf="submitted && ToyDetails.controls.yCoordinate.errors">
-            <div *ngIf="ToyDetails.controls.yCoordinate.errors.required">y is required</div>   
-        </div>
-        <div *ngIf="submitted && ToyDetails.controls.direction.errors">
-          <div *ngIf="ToyDetails.controls.direction.errors.required">direction is required</div>   
-        </div>
+              <div *ngIf="ToyDetails.controls.xCoordinate.errors.required" class="text-warning">X is required</div>
+            </div>
+            <div *ngIf="submitted && ToyDetails.controls.yCoordinate.errors">
+              <div *ngIf="ToyDetails.controls.yCoordinate.errors.required" class="text-warning">Y is required</div>
+            </div>
+            <div *ngIf="submitted && ToyDetails.controls.direction.errors">
+              <div *ngIf="ToyDetails.controls.direction.errors.required" class="text-warning">Direction is required</div>
+            </div><br>
 
             <div class="btn-group btn-group-sm">
               <button type="button" class="btn btn-outline-info  btn-sm" (click)="submit()">Update Position</button>
-              <button type="button" class="btn btn-outline-info  btn-sm"  type="reset">Reset Position</button>
+              <button type="button" class="btn btn-outline-info  btn-sm" type="reset">Reset Position</button>
             </div>
             <br><br>
             <h5>Robot movement:</h5>
             <div class="btn-group btn-group-sm">
-              <button type="button" class="btn btn-outline-info  btn-sm" (click) ="move()" [disabled]="isPositionSet">Move</button>
-              <button type="button" class="btn btn-outline-info  btn-sm"  (click)="leftMove()" [disabled]="isPositionSet">Left</button>
-              <button type="button" class="btn btn-outline-info  btn-sm" (click)="rightMove()" [disabled]="isPositionSet">Right</button>
+              <button type="button" class="btn btn-outline-info  btn-sm" (click)="move()"
+                [disabled]="isPositionSet">Move</button>
+              <button type="button" class="btn btn-outline-info  btn-sm" (click)="leftMove()"
+                [disabled]="isPositionSet">Left</button>
+              <button type="button" class="btn btn-outline-info  btn-sm" (click)="rightMove()"
+                [disabled]="isPositionSet">Right</button>
             </div><br><br>
             <h5>Robot Report:</h5>
             <div>
-              <button type="button" class="btn btn-outline-info  btn-sm" (click)="report()" [disabled]="isPositionSet">Report</button><br>
-              Current position of Robot:
+              <button type="button" class="btn btn-outline-info  btn-sm" (click)="report()"
+                [disabled]="isPositionSet">Report</button><br>
+              Current position of Robot
             </div>
-            <div *ngIf="isReportClicked">          
-              x:{{xCoordinate}}
-              y:{{yCoordinate}}
-              direction:{{direction}}
-              <button (click) ="closeReport()"> close report</button>
+            <div *ngIf="isReportClicked">
+            
+              <h2>x:{{xCoordinate}}</h2>
+              <h2>y:{{yCoordinate}}</h2>
+              <h2>direction:{{direction}}</h2>
+              <button (click)="closeReport()" class="btn btn-outline-info  btn-xs"> close report</button>
             </div>
           </td>
           <td>
@@ -145,13 +150,13 @@
                     <td><img id="11" src="../../assets/app_image/toy_robot_car.jpg" /></td>
                     <td><img id="21" src="../../assets/app_image/toy_robot_car.jpg" /></td>
                     <td><img id="31" src="../../assets/app_image/toy_robot_car.jpg" /></td>
-                    <td><img id="41" src="../../assets/app_image/toy_robot_car.jpg"/></td>
+                    <td><img id="41" src="../../assets/app_image/toy_robot_car.jpg" /></td>
                   </tr>
                   <tr>
                     <td><img id="00" src="../../assets/app_image/toy_robot_car.jpg" /></td>
                     <td><img id="10" src="../../assets/app_image/toy_robot_car.jpg" /></td>
                     <td><img id="20" src="../../assets/app_image/toy_robot_car.jpg" /></td>
-                    <td><img id="30" src="../../assets/app_image/toy_robot_car.jpg"/></td>
+                    <td><img id="30" src="../../assets/app_image/toy_robot_car.jpg" /></td>
                     <td><img id="40" src="../../assets/app_image/toy_robot_car.jpg" /></td>
                   </tr>
                 </tbody>
@@ -164,5 +169,5 @@
 
 
 
-</form>	
+  </form>
 </body>
